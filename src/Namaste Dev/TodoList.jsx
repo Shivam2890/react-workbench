@@ -1,27 +1,63 @@
 import React, { useState } from 'react'
 
 const TodoList = () => {
-    const [input, setInput] = useState('')
-    
+    const [input, setInput] = useState("")
+    const [todo, setTodo] = useState([])
 
+    function handleSubmit(e) {
+        e.preventDefault()
 
-    console.log(input, 'input')
+        if (input === "") return
+        const data = [...todo, { id: Date.now(), text: input, complete: false }]
+        setTodo(data)
+        setInput('')
+    }
+
+    function handleDelete(index) {
+        const data = todo.filter((item => item.id !== index))
+        setTodo(data)
+    }
+    function handleToggle(idx) {
+
+        const data = todo.map((item) => item.id === idx ? { ...item, complete: !item.complete } : item)
+
+        setTodo(data)
+    }
+
+    console.log(todo, 'input')
     return (
         <div className="min-h-screen bg-gray-100 font-sans text-gray-900 antialiased flex items-start pt-20 justify-center">
-            <h1 className='text-2xl font-bold'>
-                <form>
+            <div className='text-2xl font-bold'>
+
+                {/* //1 create the form to take input in the string */}
+                <form onSubmit={handleSubmit}>
                     <input type="text" placeholder='Enter Todo' value={input} onChange={(e) => setInput(e.target.value)} />
-                    <button>Add</button>
+                    <button type='submit'>Add</button>
+
                 </form>
 
-                <ul className="flex justify-between items-center">
-                    <li>sadf</li><button>Delete</button>
-                </ul>
+                {/* //1rendering the array of obj into the list */}
+                {todo.map((item) => (
+                    <div key={item.id}>
+                        <ul className="flex justify-between items-center" key={item.id}>
+                            {/* //implement the strike-through */}
+                            <li className='flex items-center gap-4 px-2.5' >
 
+                                {/* ///checkbox  */}
+                                <input type="checkbox" checked={item.complete} onChange={() => handleToggle(item.id)} />
 
-            </h1>
+                                <span className={`${item.complete ? 'line-through' : ''}`}>{item.text}</span>
+                                {/* // delete funcitonality */}
+                                <button onClick={() => handleDelete(item.id)}>Delete</button>
+                            </li>
+                        </ul>
+                    </div>
+                ))
+                }
 
-        </div>
+            </div >
+
+        </div >
     )
 }
 
