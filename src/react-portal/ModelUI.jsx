@@ -21,12 +21,13 @@ const ModelUI = () => {
     return (
         <>
             <div style={Wrapper_Button_Styles}>
-                <button onClick={() => setIsOpen(true)}>Open Model</button>
 
+                <button onClick={() => setIsOpen(true)}>Open Model</button>
                 <Model open={isOpen} onClose={() => setIsOpen(false)}>
                     Fancy Model
                 </Model>
             </div>
+
 
             <div style={Other_Content_Styles}>Other Content</div>
         </>

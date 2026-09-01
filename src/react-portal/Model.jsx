@@ -16,13 +16,14 @@ const OverLay_Styles = {
     right: 0,
     botton: 0,
     backgroundColor: 'yellow',
+    height: '100%',
     zIndex: 1000
 }
 const Model = ({ open, children, onClose }) => {
     if (!open) return null
     return (
         <>
-            <div />
+            <div style={OverLay_Styles} />
 
             <div style={Model_Styles}>
                 <button onClick={onClose}>Close</button>
