@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDom from 'react-dom';
 
 const Model_Styles = {
     position: 'fixed',
@@ -21,7 +22,7 @@ const OverLay_Styles = {
 }
 const Model = ({ open, children, onClose }) => {
     if (!open) return null
-    return (
+    return ReactDom.createPortal(
         <>
             <div style={OverLay_Styles} />
 
@@ -30,7 +31,8 @@ const Model = ({ open, children, onClose }) => {
                 {children}
             </div>
 
-        </>
+        </>,
+        document.getElementById('portal')
     )
 }
 
