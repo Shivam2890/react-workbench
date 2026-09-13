@@ -8,7 +8,13 @@ const ProgressBarComponent = ({ progress }) => {
             height: '30px',
             borderRadius: '10px'
 
-        }}>
+        }}
+            //aisstive intervnet for the screen readers
+            role='progressbar'
+            aria-valuenow={progress}
+            aria-valuemax='100'
+            aria-valuemin='0'
+        >
             <div style={{
                 width: `${progress}%`,
                 height: '30px',
