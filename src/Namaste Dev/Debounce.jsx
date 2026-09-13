@@ -4,6 +4,8 @@ const Debounce = () => {
     const [normal, setNormal] = useState("")
     const [debounce, setDebounce] = useState("")
 
+
+    //debounce Fn (main)
     function debounceFn(fn, t = 1000) {
         let delay
         return function (...args) {
@@ -12,23 +14,26 @@ const Debounce = () => {
         }
     }
 
+    //useCallback
     const debounceRequest = useCallback((val) => {
-        handleChangeDebounce(val)
+        handleDebounce(val)
     }, [])
 
-    const handleChangeDebounce = debounceFn((val) => setDebounce(val), 1000)
+    //input handling
     function handleChange(e) {
         setNormal(e.target.value)
+
+        //passing the input value in the useCallback fn
         debounceRequest(e.target.value)
     }
+
+    //here calling the debounceFn by passing in the useCallback
+    const handleDebounce = debounceFn((val) => setDebounce(val), 1000)
+
     return (
-        <div style={{ textAlign: 'center' }}>
+        <div>
             <center>
-                <p>one for the normal input</p>
-                <p>one with the debounce</p>
-
                 <input type="text" onChange={(e) => handleChange(e)} />
-
                 <h2>NORMAL : {normal}</h2>
                 <h2>DEBOUNCE : {debounce}</h2>
             </center>
