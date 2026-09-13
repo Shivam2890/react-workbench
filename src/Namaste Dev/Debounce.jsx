@@ -51,7 +51,6 @@ const Debounce = () => {
     const [normal, setNormal] = useState("")
     const [debounce, setDebounce] = useState("")
 
-
     //debounce Fn (main)
     function debounceFn(fn, t = 1000) {
         let delay
@@ -61,13 +60,9 @@ const Debounce = () => {
         }
     }
 
-
-
     //input handling
     function handleChange(e) {
         setNormal(e.target.value)
-
-
         handleDebounce.current(e.target.value)
     }
 

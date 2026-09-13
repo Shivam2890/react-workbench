@@ -4,6 +4,7 @@ import Accordian from './Namaste Dev/Accordian'
 import ProgressBar from './Namaste Dev/ProgressBar'
 import ModelUI from './react-portal/ModelUI'
 import Debounce from './Namaste Dev/Debounce'
+import DebounceSimple from './Namaste Dev/DebounceSimple'
 
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
       {/* <Accordian /> */}
       {/* <ProgressBar /> */}
       {/* <ModelUI /> */}
-      <Debounce />
+      {/* <Debounce /> */}
+      <DebounceSimple />
     </div>
   )
 }
