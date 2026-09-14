@@ -19,14 +19,11 @@ const SearchFillter = () => {
         const searchText = e.target.value.toLowerCase()
         setInput(searchText);
 
-        const filterData = users.filter((item) => item.name.toLowerCase().includes(searchText))
+        const filterData = users.filter((item) => item.name.toLowerCase().includes(searchText)) // for input state it will give me the previous state
 
         console.log(filterData, 'filterdata')
 
-        if (filterData.length == 0) {
-            setData([...users])
-            return
-        }
+
         setData(filterData)
     }
     return (
@@ -34,14 +31,19 @@ const SearchFillter = () => {
             <center>
                 <input type="text" value={input} onChange={handleChange} />
 
-                {data.map((item) => (
-                    <div key={item.id}>
-                        <ul>
-                            <li>{item.name}</li>
-                            <li>{item.email}</li>
-                        </ul>
-                    </div>
-                ))}
+                {
+                    data.length === 0 ? (
+                        <p>No user found</p>
+                    ) : (
+                        data.map((item) => (
+                            <div key={item.id}>
+                                <ul>
+                                    <li>{item.name}</li>
+                                    <li>{item.email}</li>
+                                </ul>
+                            </div>
+                        )))
+                }
             </center>
         </div>
     );
