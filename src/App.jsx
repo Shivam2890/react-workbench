@@ -6,6 +6,7 @@ import ModelUI from './react-portal/ModelUI'
 import Debounce from './Namaste Dev/Debounce'
 import DebounceSimple from './Namaste Dev/DebounceSimple'
 import ProgressBar1 from './Namaste Dev/ProgressBar1'
+import SearchFillter from './Namaste Dev/SearchFillter'
 
 const App = () => {
   return (
@@ -13,10 +14,11 @@ const App = () => {
       {/* <TodoList /> */}
       {/* <Accordian /> */}
       {/* <ProgressBar /> */}
-      <ProgressBar1 />
+      {/* <ProgressBar1 /> */}
       {/* <ModelUI /> */}
       {/* <Debounce /> */}
       {/* <DebounceSimple /> */}
+      <SearchFillter />
     </div>
   )
 }
