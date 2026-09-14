@@ -23,7 +23,7 @@ const SearchFillter = () => {
 
         console.log(filterData, 'filterdata')
 
-        if (filterData == []) {
+        if (filterData.length == 0) {
             setData([...users])
             return
         }
