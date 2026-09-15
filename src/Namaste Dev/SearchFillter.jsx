@@ -17,7 +17,7 @@ const SearchFillter = () => {
 
     function handleChange(e) {
         const searchText = e.target.value.toLowerCase()
-        setInput(searchText);
+        setInput(e.target.value);
 
         const filterData = users.filter((item) => item.name.toLowerCase().includes(searchText)) // for input state it will give me the previous state
 
