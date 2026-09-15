@@ -18,10 +18,13 @@ const SearchFillter = () => {
     function handleChange(e) {
         // const searchText = e.target.value.toLowerCase()
         setInput(e.target.value);
-        // setData(filterData)
+        // setData(filteredUser)
     }
 
-    const filterData = users.filter((item) => item.name.toLowerCase().includes(input.toLowerCase())) //now don't need to store the users data it causes me the driven state thats why get rid of the data state
+    const filteredUser = users.filter((item) =>
+        item.name.toLowerCase().includes(input.toLowerCase()) ||
+        item.email.toLowerCase().includes(input.toLowerCase())
+    ) //now don't need to store the users data it causes me the driven state thats why get rid of the data state
 
     return (
         <div>
@@ -29,10 +32,10 @@ const SearchFillter = () => {
                 <input type="text" value={input} onChange={handleChange} />
 
                 {
-                    filterData.length === 0 ? (
+                    filteredUser.length === 0 ? (
                         <p>No user found</p>
                     ) : (
-                        filterData.map((item) => (
+                        filteredUser.map((item) => (
                             <div key={item.id}>
                                 <ul>
                                     <li>{item.name}</li>
