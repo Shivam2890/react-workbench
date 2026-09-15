@@ -11,31 +11,28 @@ const users = [
 ];
 
 const SearchFillter = () => {
-    const [data, setData] = useState([...users])
+    // const [data, setData] = useState([...users])
     const [input, setInput] = useState("");
 
 
     function handleChange(e) {
-        const searchText = e.target.value.toLowerCase()
+        // const searchText = e.target.value.toLowerCase()
         setInput(e.target.value);
-
-        const filterData = users.filter((item) => item.name.toLowerCase().includes(searchText)) // for input state it will give me the previous state
-
-        console.log(filterData, 'filterdata')
-
-
-        setData(filterData)
+        // setData(filterData)
     }
+
+    const filterData = users.filter((item) => item.name.toLowerCase().includes(input.toLowerCase())) //now don't need to store the users data it causes me the driven state thats why get rid of the data state
+
     return (
         <div>
             <center>
                 <input type="text" value={input} onChange={handleChange} />
 
                 {
-                    data.length === 0 ? (
+                    filterData.length === 0 ? (
                         <p>No user found</p>
                     ) : (
-                        data.map((item) => (
+                        filterData.map((item) => (
                             <div key={item.id}>
                                 <ul>
                                     <li>{item.name}</li>
