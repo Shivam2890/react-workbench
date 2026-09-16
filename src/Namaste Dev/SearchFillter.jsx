@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 const users = [
     { id: 1, name: "John Doe", email: "john@gmail.com" },
@@ -13,32 +13,41 @@ const users = [
 const SearchFillter = () => {
     // const [data, setData] = useState([...users])
     const [input, setInput] = useState("");
-    const [debounce, setDebounce] = useState("")
+    const [debounceInput, setDebounceInput] = useState("")
 
 
+    //useRef for persit timer do avoid create the new timer on the every render
+    const timerRef = useRef(null)
+    function debounceFn(fn, t = 1000) {
+        return function (...args) {
+            clearTimeout(timerRef.current)
+            timerRef.current = setTimeout(() => fn(...args), t)
+        }
+    }
     function handleChange(e) {
         // const searchText = e.target.value.toLowerCase()
-        setInput(e.target.value);
+        setInput(e.target.value)
+        handleDebounce(e.target.value) //separte input state and debounceInput
         // setData(filteredUser)
     }
+    //here the function which take the value in the handleChange and setDebounceInput thorugh the cb
+    const handleDebounce = useMemo(
+        () => debounceFn((val) => setDebounceInput(val), 1000),
+        []
+    )
 
     const filteredUser = useMemo(() => {
         return users.filter((item) =>
-            item.name.toLowerCase().includes(debounce.toLowerCase()) ||
-            item.email.toLowerCase().includes(debounce.toLowerCase())
+            item.name.toLowerCase().includes(debounceInput.toLowerCase()) ||
+            item.email.toLowerCase().includes(debounceInput.toLowerCase())
         ) //now don't need to store the users data it causes me the driven state thats why get rid of the data state
-    }, [debounce])
+    }, [debounceInput])
 
     useEffect(() => {
-        let delay = setTimeout(() => {
-            setDebounce(input)
-        },1000)
-
         return () => {
-            clearTimeout(delay)
+            clearTimeout(timerRef.current   )
         }
-
-    }, [input])
+    }, [])
 
     return (
         <div>
