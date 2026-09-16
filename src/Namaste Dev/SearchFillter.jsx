@@ -13,6 +13,7 @@ const users = [
 const SearchFillter = () => {
     // const [data, setData] = useState([...users])
     const [input, setInput] = useState("");
+    const [debounce, setDebounce] = useState("")
 
 
     function handleChange(e) {
@@ -23,14 +24,21 @@ const SearchFillter = () => {
 
     const filteredUser = useMemo(() => {
         return users.filter((item) =>
-            item.name.toLowerCase().includes(input.toLowerCase()) ||
-            item.email.toLowerCase().includes(input.toLowerCase())
+            item.name.toLowerCase().includes(debounce.toLowerCase()) ||
+            item.email.toLowerCase().includes(debounce.toLowerCase())
         ) //now don't need to store the users data it causes me the driven state thats why get rid of the data state
+    }, [debounce])
+
+    useEffect(() => {
+        let delay = setTimeout(() => {
+            setDebounce(input)
+        },1000)
+
+        return () => {
+            clearTimeout(delay)
+        }
+
     }, [input])
-
-    // useEffect(() => {
-
-    // }, [])
 
     return (
         <div>
