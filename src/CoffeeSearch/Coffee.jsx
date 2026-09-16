@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import CoffeeFilter from './CoffeeFilter'
 import CoffeeList from './CoffeeList'
 import axios from 'axios'
+import { debounceFn } from './coffeeDebounce.js'
 
 const Coffee = () => {
     const [coffees, setCoffees] = useState([])
@@ -18,20 +19,28 @@ const Coffee = () => {
         }
     }
 
-    const filterData = coffees.filter((coffee) => coffee.title.toLowerCase().includes(debounceInput.toLowerCase()))
-    
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setDebounceInput(input)
-        }, 1000);
-        fetchData()
+    const filterData = coffees.filter((coffee) =>
+        coffee.title
+            .toLowerCase()
+            .includes(debounceInput.toLowerCase())
+    )
 
-        return () => {
-            clearTimeout(timer)
-        }
+    const handleDebounce = useMemo(
+        () =>
+            debounceFn((val) => setDebounceInput(val), 1000)
+        ,
+        [])
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    useEffect(() => {
+        handleDebounce(input)
     }, [input])
+
     return (
-        <center>
+        <center className='pb-3'>
             <h2>Here's Your Coffee</h2>
             <CoffeeFilter input={input} setInput={setInput} />
             <CoffeeList coffees={filterData} />
