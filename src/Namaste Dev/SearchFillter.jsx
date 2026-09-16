@@ -37,15 +37,17 @@ const SearchFillter = () => {
     )
 
     const filteredUser = useMemo(() => {
+        const searchText = debounceInput.toLowerCase()
+
         return users.filter((item) =>
-            item.name.toLowerCase().includes(debounceInput.toLowerCase()) ||
-            item.email.toLowerCase().includes(debounceInput.toLowerCase())
+            item.name.toLowerCase().includes(searchText) ||
+            item.email.toLowerCase().includes(searchText)
         ) //now don't need to store the users data it causes me the driven state thats why get rid of the data state
     }, [debounceInput])
 
     useEffect(() => {
         return () => {
-            clearTimeout(timerRef.current   )
+            clearTimeout(timerRef.current)
         }
     }, [])
 
