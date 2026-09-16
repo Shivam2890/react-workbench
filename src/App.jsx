@@ -7,6 +7,7 @@ import Debounce from './Namaste Dev/Debounce'
 import DebounceSimple from './Namaste Dev/DebounceSimple'
 import ProgressBar1 from './Namaste Dev/ProgressBar1'
 import SearchFillter from './Namaste Dev/SearchFillter'
+import Coffee from './CoffeeSearch/Coffee'
 
 const App = () => {
   return (
@@ -18,7 +19,8 @@ const App = () => {
       {/* <ModelUI /> */}
       {/* <Debounce /> */}
       {/* <DebounceSimple /> */}
-      <SearchFillter />
+      {/* <SearchFillter /> */}
+      <Coffee /> {/**this is also the search fillter with proper component based */}
     </div>
   )
 }
