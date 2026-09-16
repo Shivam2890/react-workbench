@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 const users = [
     { id: 1, name: "John Doe", email: "john@gmail.com" },
@@ -21,10 +21,16 @@ const SearchFillter = () => {
         // setData(filteredUser)
     }
 
-    const filteredUser = users.filter((item) =>
-        item.name.toLowerCase().includes(input.toLowerCase()) ||
-        item.email.toLowerCase().includes(input.toLowerCase())
-    ) //now don't need to store the users data it causes me the driven state thats why get rid of the data state
+    const filteredUser = useMemo(() => {
+        return users.filter((item) =>
+            item.name.toLowerCase().includes(input.toLowerCase()) ||
+            item.email.toLowerCase().includes(input.toLowerCase())
+        ) //now don't need to store the users data it causes me the driven state thats why get rid of the data state
+    }, [input])
+
+    // useEffect(() => {
+
+    // }, [])
 
     return (
         <div>
