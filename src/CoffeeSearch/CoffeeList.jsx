@@ -10,10 +10,12 @@ const CoffeeList = ({ coffees }) => {
         description={coffee.description}
     />)
     return (
-        <div>
+        <center>
             here the list hava to fillter
-            {coffeeTitle}
-        </div>
+
+            {coffees.length === 0 ? <center>Please Enter right coffee</center> : coffeeTitle}
+
+        </center>
     )
 }
 
