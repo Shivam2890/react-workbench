@@ -16,6 +16,7 @@ const users = [
     { id: 13, name: "Sophia White", email: "sophia@gmail.com" },
     { id: 14, name: "Daniel Harris", email: "daniel@gmail.com" },
     { id: 15, name: "Emma Martin", email: "emma@gmail.com" },
+    { id: 16, name: "Emma Martin", email: "emma@gmail.com" },
 ];
 
 const Pagination = () => {
@@ -46,7 +47,7 @@ const Pagination = () => {
                     >Prev
                     </button>
 
-                    {users.map((item, i) => (
+                    {Array(totalPages).fill(0).map((item, i) => (
                         <button
                             key={i}
                             onClick={() => setPages(i + 1)}
