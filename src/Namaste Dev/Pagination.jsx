@@ -52,7 +52,7 @@ const Pagination = () => {
                             key={i}
                             onClick={() => setPages(i)}
                             className={
-                                pages === i ? 'bg-white text-black px-3 py-1 rounded' : 'px-3 py-1'
+                                pages === i ? 'bg-white text-black px-3 py-1 rounded cursor-pointer' : 'px-3 py-1 cursor-pointer'
                             }
                         >{i}</button>
                     ))}
