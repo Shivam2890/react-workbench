@@ -8,6 +8,7 @@ import DebounceSimple from './Namaste Dev/DebounceSimple'
 import ProgressBar1 from './Namaste Dev/ProgressBar1'
 import SearchFillter from './Namaste Dev/SearchFillter'
 import Coffee from './CoffeeSearch/Coffee'
+import Pagination from './Namaste Dev/Pagination'
 
 const App = () => {
   return (
@@ -20,7 +21,8 @@ const App = () => {
       {/* <Debounce /> */}
       {/* <DebounceSimple /> */}
       {/* <SearchFillter /> */}
-      <Coffee /> {/**this is also the search fillter with proper component based */}
+      {/* <Coffee /> *this is also the search fillter with proper component based */}
+      <Pagination />
     </div>
   )
 }
