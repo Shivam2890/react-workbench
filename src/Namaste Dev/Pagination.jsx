@@ -47,15 +47,15 @@ const Pagination = () => {
                     >Prev
                     </button>
 
-                    {Array(totalPages).fill(0).map((item, i) => (
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((i) => (
                         <button
                             key={i}
-                            onClick={() => setPages(i + 1)}
-                        >{i + 1}</button>
+                            onClick={() => setPages(i)}
+                            className={
+                                pages === i ? 'bg-white text-black px-3 py-1 rounded' : 'px-3 py-1'
+                            }
+                        >{i}</button>
                     ))}
-                    {/* <button onClick={() => setPages(1)}>1</button>
-                    <button onClick={() => setPages(2)}>2</button>
-                    <button onClick={() => setPages(3)}>3</button> */}
 
                     <button
                         onClick={() => setPages(prev => prev + 1)}
