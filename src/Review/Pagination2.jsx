@@ -20,7 +20,7 @@ const users = [
 ];
 
 const Pagination2 = () => {
-    const [currPage, setCurrPage] = useState(2)
+    const [currPage, setCurrPage] = useState(0)
 
     const totalPages = Math.ceil(users.length / 5)
     const itemPerPage = 5
@@ -30,16 +30,16 @@ const Pagination2 = () => {
     console.log(currPage, 'curr')
     return (
         <div>
-            <center className='h-screen'>
+            <div className='h-screen flex flex-col items-center'>
                 {users.slice(startIndex, endIndex).map((item) => (
                     <div key={item.id}
-                        className='w-[600px] bg-amber-100 flex justify-center gap-3 pb-2 border m-2 rounded-2xl'>
+                        className='w-full max-w-150 px-4 bg-amber-100 flex justify-center gap-3 pb-2 border m-2 rounded-2xl'>
                         <p>{item.id}</p>
                         <h2>{item.name}</h2>
-                        <h3>{item.name}</h3>
+                        <h3>{item.email}</h3>
                     </div>
                 ))}
-            </center>
+            </div>
 
             <div className='fixed bg-amber-200 bottom-0 left-0 w-full h-10'>
                 <div className='flex justify-center gap-4'>
@@ -50,6 +50,7 @@ const Pagination2 = () => {
 
                     {Array.from({ length: totalPages }, (_, i) =>
                         <button key={i}
+                            aria-current={currPage}
                             onClick={() => setCurrPage(i)}
                             className={currPage === i ? 'bg-white text-black px-3 py-1 rounded' : 'px-3 py-1 rounded'}
                         >{i + 1}</button>)}
