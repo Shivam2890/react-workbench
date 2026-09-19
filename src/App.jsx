@@ -12,6 +12,7 @@ import Pagination from './Namaste Dev/Pagination'
 import Pagination2 from './Review/Pagination2'
 import NamastePagination from './Review/NamastePagination'
 import Accordian2 from './Review/Accordian2'
+import TabSwitcher from './Namaste Dev/TabSwitcher'
 
 const App = () => {
   return (
@@ -26,11 +27,12 @@ const App = () => {
       {/* <SearchFillter /> */}
       {/* <Coffee /> *this is also the search fillter with proper component based */}
       {/* <Pagination /> */}
+      <TabSwitcher />
 
       {/* REVISION */}
       {/* <Pagination2 /> */}
       {/* <NamastePagination /> */}
-      <Accordian2 />
+      {/* <Accordian2 /> */}
     </div>
   )
 }
