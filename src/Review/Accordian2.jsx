@@ -35,6 +35,13 @@ const Accordian2 = () => {
     return (
         <div>
             <div className='text-center flex flex-col gap-2.5 '>
+
+                <span onClick={() => setOpen(faqs.map
+                    (item => item.id)
+                )}>Expand</span>
+
+                <span onClick={() => setOpen([])}>Collapse</span>
+
                 {faqs.map((item) => (
                     <div key={item.id} className='border bg-amber-100 m-2.5' >
                         <h2
