@@ -26,21 +26,29 @@ const Accordian2 = () => {
     const [open, setOpen] = useState([])
 
     function handleClick(id) {
-        if (open.includes(id)) {
-            setOpen(prev => prev.filter(num => num !== id))
-            return
-        }
-        setOpen(prev => [...prev, id])
+        setOpen(prev => {
+            if (prev.includes(id)) {
+                return prev.filter(itemId => itemId !== id)
+            }
+            return [...prev, id]
+        })
     }
     return (
         <div>
             <div className='text-center flex flex-col gap-2.5 '>
 
-                <span onClick={() => setOpen(faqs.map
-                    (item => item.id)
-                )}>Expand</span>
+                <span
+                    onClick={() => setOpen(faqs.map
+                        (item => item.id)
+                    )}
+                    className='cursor-pointer'
+                >Expand</span>
 
-                <span onClick={() => setOpen([])}>Collapse</span>
+                <span
+                    onClick={() => setOpen([])}
+
+                    className='cursor-pointer'
+                >Collapse</span>
 
                 {faqs.map((item) => (
                     <div key={item.id} className='border bg-amber-100 m-2.5' >
