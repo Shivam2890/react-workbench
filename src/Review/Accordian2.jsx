@@ -23,14 +23,14 @@ const faqs = [
     }
 ];
 const Accordian2 = () => {
-    const [open, setOpen] = useState(null)
+    const [open, setOpen] = useState([])
 
     function handleClick(id) {
-        if (id == open) {
-            setOpen(null)
+        if (open.includes(id)) {
+            setOpen(prev => prev.filter(num => num !== id))
             return
         }
-        setOpen(id)
+        setOpen(prev => [...prev, id])
     }
     return (
         <div>
@@ -41,7 +41,7 @@ const Accordian2 = () => {
                             className='p-2.5 cursor-pointer'
                             onClick={() => handleClick(item.id)}
                         >{item.question}</h2>
-                        {open == item.id ? <p>{item.answer}</p> : ""}
+                        {open.includes(item.id) && <p>{item.answer}</p>}
                     </div>
                 ))}
             </div>
