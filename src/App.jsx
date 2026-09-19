@@ -10,6 +10,7 @@ import SearchFillter from './Namaste Dev/SearchFillter'
 import Coffee from './CoffeeSearch/Coffee'
 import Pagination from './Namaste Dev/Pagination'
 import Pagination2 from './Review/Pagination2'
+import NamastePagination from './Review/NamastePagination'
 
 const App = () => {
   return (
@@ -26,7 +27,8 @@ const App = () => {
       {/* <Pagination /> */}
 
       {/* REVISION */}
-      <Pagination2 />
+      {/* <Pagination2 /> */}
+      <NamastePagination />
     </div>
   )
 }
