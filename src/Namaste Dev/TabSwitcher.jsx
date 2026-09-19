@@ -19,27 +19,31 @@ const tabs = [
     }
 ];
 const TabSwitcher = () => {
-    const [open, setOpen] = useState(tabs[0].id)
+    const [activeTab, setActiveTab] = useState(tabs[0].id)
+
     function handleClick(id) {
-        if (id == open) {
-            setOpen(null)
-            return
-        }
-        setOpen(id)
+        // if (id == activeTab) {
+        //     setActiveTab(null)
+        //     return
+        // }
+        setActiveTab(id)
     }
+
+    const activeContent = tabs.find((item) => item.id === activeTab)
     return (
         <div>
-            <div>
+            <div className='flex gap-2 m-2.5 justify-center'>
                 {tabs.map((item) => (
-                    <div key={item.id} className='flex gap-2 border m-2.5 justify-center'>
+                    <div key={item.id} >
                         <button
-                            className='bg-amber-200 border-amber-300 p-2'
+                            className={activeTab === item.id ? "bg-amber-300 border p-2" : "bg-gray-200 border p-2"}
                             onClick={() => handleClick(item.id)}
                         >{item.label}</button>
-                        {open === item.id && <p>{item.content}</p>}
                     </div>
                 ))}
             </div>
+
+            <p className='text-center text-2xl mt-8 '>{activeContent.content}</p>
         </div>
     )
 }
