@@ -11,6 +11,7 @@ import Coffee from './CoffeeSearch/Coffee'
 import Pagination from './Namaste Dev/Pagination'
 import Pagination2 from './Review/Pagination2'
 import NamastePagination from './Review/NamastePagination'
+import Accordian2 from './Review/Accordian2'
 
 const App = () => {
   return (
@@ -28,7 +29,8 @@ const App = () => {
 
       {/* REVISION */}
       {/* <Pagination2 /> */}
-      <NamastePagination />
+      {/* <NamastePagination /> */}
+      <Accordian2 />
     </div>
   )
 }
