@@ -27,7 +27,7 @@ const TabSwitcher = () => {
         //     return
         // }
         setActiveTab(id)
-    }
+    }   
 
     const activeContent = tabs.find((item) => item.id === activeTab)
     return (
