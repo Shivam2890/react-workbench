@@ -6,14 +6,16 @@ Array.prototype.myincludes = function (element, startIndex) {
     }
 
     for (let i = index; i < this.length; i++) {
-        if (element === this[i]) {
+        if (element === this[i]
+            ||
+            (Number.isNaN(element) && Number.isNaN(this[i]))) {
             return true
         }
     }
     return false
 }
 
-const isThere = [1, 3, 4, 5].myincludes(3)
+const isThere = [1, 3, 4, 5, NaN].myincludes(NaN)
 
 console.log(isThere) //true for the NaN
 console.log(NaN === NaN)
