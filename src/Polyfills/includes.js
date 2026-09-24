@@ -8,7 +8,6 @@ Array.prototype.myincludes = function (element, startIndex) {
         }
     }
 
-
     for (let i = index; i < this.length; i++) {
         if (element === this[i]
             ||

@@ -1,0 +1,72 @@
+important 
+1. map
+2. filter
+3. reduce
+4. forEach
+5. call
+6. apply
+7. bind
+8. Promise
+9. Promise.all
+10. debounce + throttle
+
+array
+1. map
+2. filter
+3. reduce
+4. forEach
+5. call
+6. apply
+7. bind
+8. Promise
+9. Promise.all
+10. debounce + throttle
+10. flat()
+11. flatMap()
+12. concat()
+13. slice()
+14. push()
+15. pop()
+16. shift()
+17. unshift()
+18. reverse()
+
+function polyfills
+🔥 call
+🔥 apply
+🔥 bind
+
+phase 3 promise polyfills
+🔥 Promise.resolve()
+🔥 Promise.reject()
+🔥 Promise.all()
+🔥 Promise.allSettled()
+🔥 Promise.race()
+🔥 Promise.any()
+
+
+1.  map
+2.  filter
+3.  reduce
+4.  forEach
+5.  find
+6.  findIndex
+7.  some
+8.  every
+9.  includes
+10. flat
+
+11. call
+12. apply
+13. bind
+
+14. Promise.resolve
+15. Promise.all
+16. Promise.race
+17. Promise.allSettled
+18. Promise.any
+
+19. debounce
+20. throttle
+
+then after that search for more that is sufficient
