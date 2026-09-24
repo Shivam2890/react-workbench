@@ -4,6 +4,9 @@ Array.prototype.myincludes = function (element, startIndex) {
     if (arguments.length >= 2) {
         index = startIndex
     }
+    if (startIndex < 0) {
+        index = Math.max(this.length + startIndex, 0)
+    }
 
     for (let i = index; i < this.length; i++) {
         if (element === this[i]
@@ -15,7 +18,11 @@ Array.prototype.myincludes = function (element, startIndex) {
     return false
 }
 
-const isThere = [1, 3, 4, 5, NaN].myincludes(NaN)
+const isThere = [1, 3, 4, 5].includes(3, -124)
 
 console.log(isThere) //true for the NaN
 console.log(NaN === NaN)
+
+//   index = Math.max(this.length + startIndex, 0) // if my starting index is too negative (exceeding the length) then it treat as the 0
+
+
