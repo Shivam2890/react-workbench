@@ -9,7 +9,7 @@ Array.prototype.myflat = function (depth = 1) {
     function flatten(arr, depth) {
         for (let item of arr) {
             if (Array.isArray(item) && depth > 0) {
-                result.concat(flatten(item, depth - 1)) //don't need to concat becasue it shared same result and the flatten function return undefined so it does't matter here
+                flatten(item, depth - 1)
             } else {
                 result.push(item)
             }
