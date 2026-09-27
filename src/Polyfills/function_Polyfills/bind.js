@@ -1,21 +1,33 @@
 
+// Function.prototype.mybind = function (context = {}, ...bindArgs) {
+//     if (typeof this !== 'function') {
+//         throw new Error(this + 'it is not callable / function')
+//     }
+
+//     const originalFn = this
+//     return (...callArgs) => {
+
+//         const key = Symbol()
+
+//         context[key] = originalFn
+//         try {
+//             return context[key](...bindArgs, ...callArgs)
+//         } finally {
+//             delete context[key]
+//         }
+//     }
+// }
+
 Function.prototype.mybind = function (context = {}, ...bindArgs) {
     if (typeof this !== 'function') {
-        throw new Error(this + 'it is not callable / function')
+        throw new Error(this + 'is not callable / function')
+    }
+    context.fn = this
+
+    return function (...callArgs) {
+        return context.fn(...bindArgs, ...callArgs)
     }
 
-    const originalFn = this
-    return (...callArgs) => {
-
-        const key = Symbol()
-
-        context[key] = originalFn
-        try {
-            return context[key](...bindArgs, ...callArgs)
-        } finally {
-            delete context[key]
-        }
-    }
 }
 
 const user = {
