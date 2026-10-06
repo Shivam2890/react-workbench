@@ -13,6 +13,7 @@ import Pagination2 from './Review/Pagination2'
 import NamastePagination from './Review/NamastePagination'
 import Accordian2 from './Review/Accordian2'
 import TabSwitcher from './Namaste Dev/TabSwitcher'
+import InfiniteScroll from './Namaste Dev/InfiniteScroll'
 
 const App = () => {
   return (
@@ -27,7 +28,8 @@ const App = () => {
       {/* <SearchFillter /> */}
       {/* <Coffee /> *this is also the search fillter with proper component based */}
       {/* <Pagination /> */}
-      <TabSwitcher />
+      {/* <TabSwitcher /> */}
+      <InfiniteScroll />
 
       {/* REVISION */}
       {/* <Pagination2 /> */}

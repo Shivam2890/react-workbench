@@ -6,6 +6,7 @@ Array.prototype.myFilter = function (cb) {
         if (cb(this[i], i, this)) {
             result.push(this[i])
         }
+        
     }
     return result
 }
