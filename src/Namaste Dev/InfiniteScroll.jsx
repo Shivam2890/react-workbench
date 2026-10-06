@@ -4,19 +4,23 @@ import React, { useEffect, useRef, useState } from 'react'
 const InfiniteScroll = () => {
     const [data, setData] = useState([])
     const [page, setPage] = useState(0)
-    const [loading, setLoading] = useState(false)
+    // const [loading, setLoading] = useState(false)
+    const loaderRef = useRef(null)
+    const loading = useRef(false)
 
-    const loaderRef = useRef()
     console.log(loaderRef.current, 'reff')
     const fetch = async () => {
         const fetchData = await axios.get('https://dummyjson.com/users')
         setData(prev => [...prev, ...fetchData.data.users.slice(page, page + 10)])
-        setLoading(false)
+        loading.current = false
+        // setLoading(false)
     }
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && !loading) {
-                setLoading(true)
+            console.log(entries, 'adfasdfas')
+            if (entries[0].isIntersecting && !loading.current) {
+                // setLoading(true)
+                loading.current = true
                 setPage(prev => prev + 10)
                 console.log('triggerss', page)
             }
