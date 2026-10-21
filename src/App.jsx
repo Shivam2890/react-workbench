@@ -14,6 +14,8 @@ import NamastePagination from './Review/NamastePagination'
 import Accordian2 from './Review/Accordian2'
 import TabSwitcher from './Namaste Dev/TabSwitcher'
 import InfiniteScroll from './Namaste Dev/InfiniteScroll'
+import StarRating from './Namaste Dev/StarRating'
+import Curd from './Namaste Dev/Curd'
 
 const App = () => {
   return (
@@ -29,12 +31,16 @@ const App = () => {
       {/* <Coffee /> *this is also the search fillter with proper component based */}
       {/* <Pagination /> */}
       {/* <TabSwitcher /> */}
-      <InfiniteScroll />
+      {/* <InfiniteScroll /> */}
 
       {/* REVISION */}
       {/* <Pagination2 /> */}
       {/* <NamastePagination /> */}
       {/* <Accordian2 /> */}
+
+
+      <StarRating />
+      {/* <Curd /> */}
     </div>
   )
 }
