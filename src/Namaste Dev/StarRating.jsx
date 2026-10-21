@@ -8,7 +8,8 @@ const StarRating = ({
 
 }) => {
 
-    const [rating, setRating] = useState(null)
+    const [rating, setRating] = useState(0)
+    const [hover, setHover] = useState(0)
     console.log(rating, 'rainting')
     return (
         <div>
@@ -20,21 +21,24 @@ const StarRating = ({
                             width={size}
                             height={size}
                             viewBox="0 0 24 24"
-                            fill={rating >= i ? color : ""}
+                            fill={(hover || rating) >= item ? color : "none"}
                             stroke={color}
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             className={className}
-                            onClick={() => setRating(i)}
+                            onClick={() => setRating(item)}
+                            //hovering
+                            onMouseEnter={() => setHover(item)}
+                            onMouseLeave={() => setHover(0)}
                         >
                             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                         </svg>
                     </div>)}
 
-                    <div>Rating : {rating+1} / 5</div>
 
             </div>
+            <div>Rating : {rating} / 5</div>
         </div>
     )
 }
