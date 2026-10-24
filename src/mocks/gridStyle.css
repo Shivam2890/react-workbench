@@ -1,0 +1,29 @@
+.outer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.inner {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.inner > div {
+  box-sizing: border-box;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  /* align-items: center;
+  justify-content: center;  for flex*/
+  place-items: center;
+  /* short hand for aic jic */
+  border: 1px solid wheat;
+}
+
+.inner > div.active {
+  background-color: lightgreen;
+}

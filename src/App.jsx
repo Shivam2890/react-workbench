@@ -16,6 +16,8 @@ import TabSwitcher from './Namaste Dev/TabSwitcher'
 import InfiniteScroll from './Namaste Dev/InfiniteScroll'
 import StarRating from './Namaste Dev/StarRating'
 import Curd from './Namaste Dev/Curd'
+import StarRating2 from './Namaste Dev/StarRating2'
+import GridColor from './mocks/GridColor'
 
 const App = () => {
   return (
@@ -39,8 +41,11 @@ const App = () => {
       {/* <Accordian2 /> */}
 
 
-      <StarRating />
+      {/* <StarRating /> */}
+      {/* <StarRating2 /> */}
       {/* <Curd /> */}
+
+      <GridColor />
     </div>
   )
 }
